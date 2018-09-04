@@ -140,6 +140,23 @@ class LinkedList:
         cur_x.next = cur_y.next
         cur_y.next = temp
 
+    def reverse(self):
+
+        if self.head is None or self.head.next is None:
+            return;
+
+        prev = None
+        cur = self.head
+        next = None
+
+        while cur is not None:
+            next = cur.next
+            cur.next = prev
+            prev = cur
+            cur = next
+
+        self.head = prev
+
 
 if __name__ == '__main__':
 
@@ -154,6 +171,6 @@ if __name__ == '__main__':
     llist.push(1)
     print ("Linked list before calling swapNodes() ")
     llist.print_list()
-    llist.swap_nodes(1, 6)
+    llist.reverse()
     print ("\nLinked list after calling swapNodes() ")
     llist.print_list()
