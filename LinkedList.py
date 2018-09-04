@@ -157,6 +157,19 @@ class LinkedList:
 
         self.head = prev
 
+    def print_middle(self):
+        slow = self.head
+        fast = self.head
+
+        if self.head is None:
+            return
+
+        while fast.next is not None and fast.next.next is not None:
+            fast = fast.next.next
+            slow = slow.next
+
+        print(slow.data)
+
 
 if __name__ == '__main__':
 
@@ -170,6 +183,7 @@ if __name__ == '__main__':
     llist.push(2)
     llist.push(1)
     print ("Linked list before calling swapNodes() ")
+    llist.print_middle()
     llist.print_list()
     llist.reverse()
     print ("\nLinked list after calling swapNodes() ")
